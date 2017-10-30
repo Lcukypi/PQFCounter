@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">PQFCounterFinal</string>
+
+    <!-- 程序中用到的字符常量  -->
+    <string name="counter">计步</string>
+    <string name="news">新闻</string>
+    <string name="music">音乐</string>
+    <string name="forum">论坛</string>
+    <string name="mine">我的</string>
+</resources>

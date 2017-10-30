@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="cn.cumt.counter.step">
+
+    <!-- 计歩 -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+
+    <uses-feature android:name="android.hardware.sensor.accelerometer"/>
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+
+    <!-- 地图 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <uses-feature
+        android:name="android.hardware.sensor.stepcounter"
+        android:required="true"/>
+    <uses-feature
+        android:name="android.hardware.sensor.stepdetector"
+        android:required="true"/>
+
+    <application>
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="EMhQkxULoE51eGeTbNzXSLK4amcaSNCZ"/>
+        <activity android:name="cn.cumt.counter.step.activity.StepCounterActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="cn.cumt.counter.step.activity.SetPlanActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name="cn.cumt.counter.step.activity.HistoryActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
+        <service android:name="com.baidu.location.f"
+                 android:enabled="true"
+                 android:process=":remote">
+        </service>
+
+
+        <service
+            android:name="cn.cumt.counter.step.step.service.StepService"
+            android:priority="1000"
+            android:process="cn.bluemobi.dylan.step.service">
+            <intent-filter>
+
+                <!-- 系统启动完成后会调用 -->
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.intent.action.ACTION_TIME_TICK"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </service>
+
+
+    </application>
+
+</manifest>

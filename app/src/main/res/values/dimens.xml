@@ -1,0 +1,14 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <!-- 定义程序中用到的距离常量 -->
+    <dimen name="button_height">45.0dip</dimen>
+    <dimen name="bottom_tab_font_size">10.0dip</dimen>
+    <dimen name="bottom_tab_padding_up">2.0dip</dimen>
+    <dimen name="bottom_tab_padding_drawable">2.0dip</dimen>
+    <dimen name="switch_logo_bottom_padding">30.0sp</dimen>
+
+</resources>
